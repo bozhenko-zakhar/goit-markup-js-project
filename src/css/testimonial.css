@@ -1,13 +1,7 @@
 
 /*!Styles for Mobile devices*/
-.container {
-  min-width: 335px;
-  max-width: 375px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.testimonial__title{
+@media screen and (max-width: 374px) {
+.testimonial-title{
 display: flex;
 align-items: center;
 justify-content: flex-start;
@@ -15,8 +9,8 @@ flex-direction: column;
 gap: 24px;
 margin-bottom: 40px;
 }
-
-.testimonial__head{
+/*!ready*/
+.testimonial-head{
 font-weight: 700;
 font-size: 36px;
 line-height: 1.2;
@@ -24,72 +18,40 @@ letter-spacing: -0.01em;
 text-align: center;
 color: #02060a;
 }
-
-.testimonial__text{
+/*!ready*/
+.testimonial-text{
 font-family: "IBM Plex Sans", sans-serif;
 line-height: 1.5;
-letter-spacing: -0.01em;
 text-align: center;
 color: #02060a;
 }
-
-.testimonial__star{
+/*!ready*/
+.testimonial-star{
 display: flex;
 align-items: center;
 justify-content: flex-start;
 flex-direction: row;
 gap: 32px;
 }
-
-.testimonial__stars-list{
-display: flex;
-flex-wrap: nowrap;
-justify-content: flex-start;
-width:116px; 
-height:18.89px;
+.star-empty {
+  background: url('../img/icon-star-outline.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 }
 
-.stars{
-width:20px;
-height:19px;
-}
-/* .star.filled {
-    
-} */
-
-.testimonial__quote{
-font-family: "IBM Plex Sans", sans-serif;
-font-weight: 400;
-font-size: 18px; 
-line-height: 1.5;
-color: #02060a;
+.star-half {
+  background: url('../img/icon-star-half.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 }
 
-.testimonial__author{
-display: flex;
-align-items: center;
-justify-content: flex-start;
-flex-direction: row;
-gap: 0px;
-width: 118px;
-height: 21px
+.star-filled {
+  background: url('../img/icon-star-filled.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 }
 
-
-
-
-
-/*!tablet */
-@media (min-width: 376px) {
-  .testimonial__head {
-    font-size: 28px;
-  }
-}
-
-/* !Styles for Desktop devices */
-@media only screen and (min-width: 1312px) {
-  .container {
-    max-width: 1312px;
-  	padding: 0 80px;
-  }
 }
