@@ -70,8 +70,8 @@ function renderSlides(feedbacks) {
     <div class="swiper-slide">
       <div class="testimonial-card">
         ${renderStars(fb.rate)}
-        <p class="testimonial__quote">${fb.description}</p>
-        <p class="testimonial__author">${fb.author}</p>
+        <p class="testimonial-quote">${fb.description}</p>
+        <p class="testimonial-author">${fb.author}</p>
       </div>
     </div>
   `).join('');

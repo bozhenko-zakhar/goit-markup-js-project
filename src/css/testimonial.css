@@ -1,7 +1,6 @@
 .rating {
   display: flex;
   gap: 4px;
-  margin-bottom: 16px;
 }
 
 .star {
@@ -53,5 +52,30 @@
     text-align: center;
     color: #02060a;
     margin: 0;
+  }
+  .testimonial-card{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .testimonial-quote{
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #02060a;
+  margin: 0;
+  }
+  .testimonial-author{
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: column;
+gap: 0px;
+font-family: "IBM Plex Sans", sans-serif;
+font-weight: 600;
+font-size: 14px;
+line-height: 1.5;
+color: #02060a;
   }
 }
