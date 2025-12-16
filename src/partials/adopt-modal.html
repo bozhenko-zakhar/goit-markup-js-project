@@ -1,5 +1,5 @@
 <!-- <section>adopt modal</section> -->
-<div class="backdrop is-hidden" data-modal>
+<div class="backdrop" data-modal>
   <div class="adopt-modal">
     <button class="adopt-modal-close" data-modal-close>
       <svg class="adopt-modal-svg" width="24" height="24">
@@ -11,21 +11,23 @@
 
     <form class="adopt-modal-form">
       <label>
-        Ім’я
-        <input type="text" name="name" required />
+        <p class="adopt-text">Ім’я*</p>
+        <input type="text" class="form-name" name="name" required />
       </label>
 
       <label>
-        Телефон
-        <input type="tel" name="phone" required />
+        <p class="adopt-text">Телефон*</p>
+        <input type="tel" class="form-name" name="phone" required />
       </label>
 
       <label>
-        Коментар
-        <textarea name="comment"></textarea>
+        <p class="adopt-text">Коментар</p>
+        <textarea class="form-name adopt-textarea" name="comment"></textarea>
       </label>
 
-      <button type="submit">Надіслати заявку</button>
+      <button type="submit" class="submit-adopt">
+        <p class="text-submit-adopt">Надіслати</p>
+      </button>
     </form>
   </div>
 </div>

@@ -1,7 +1,10 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .is-hidden {
@@ -13,6 +16,120 @@
 body.modal-open {
   overflow: hidden;
 }
+
 .adopt-modal {
-  color: red;
+  border-radius: 8px;
+  padding: 64px;
+  width: 768px;
+  height: 768px;
+  max-width: 768px;
+  background-color: #f5f3f0;
+  position: relative;
+}
+
+.adopt-modal-svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  color: #000;
+}
+
+.adopt-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.adopt-modal-title {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #02060a;
+  margin: 48px;
+  margin-top: 0;
+}
+
+.adopt-modal-form {
+  width: 640px;
+  height: 476px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.adopt-modal-form label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  gap: 24px;
+  line-height: 150%;
+  color: #02060a;
+  gap: 8px;
+}
+
+.form-name {
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  padding: 8px 12px;
+  width: 640px;
+  height: 40px;
+  background: rgba(2, 6, 10, 0.05);
+}
+
+.adopt-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #02060a;
+  /* margin: 0;
+  margin-bottom: 8px; */
+}
+
+.adopt-textarea {
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  padding: 12px;
+  width: 640px;
+  height: 180px;
+  background: rgba(2, 6, 10, 0.05);
+}
+
+.submit-adopt {
+  border: 1px solid #88765c;
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: 240px;
+  height: 48px;
+  background-color: #88765c;
+  align-items: center;
+  flex-direction: column;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-submit-adopt {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  display: block;
+  line-height: 150%;
+  color: #fff;
+  margin: 0 auto;
+  align-items: center;
 }
