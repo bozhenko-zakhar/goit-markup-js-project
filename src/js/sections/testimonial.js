@@ -15,7 +15,6 @@ function renderStars(value) {
 
   let starsMarkup = '';
 
-  // Повні зірки
   for (let i = 0; i < fullStars; i++) {
     starsMarkup += `
       <div class="star">
@@ -26,7 +25,6 @@ function renderStars(value) {
     `;
   }
 
-  // Половинка
   if (hasHalf) {
     starsMarkup += `
       <div class="star">
@@ -37,7 +35,6 @@ function renderStars(value) {
     `;
   }
 
-  // Порожні зірки
   for (let i = 0; i < emptyStars; i++) {
     starsMarkup += `
       <div class="star">
@@ -81,6 +78,9 @@ function renderSlides(feedbacks) {
 
 function initSwiper() {
   new Swiper('.swiper', {
+    autoplay: {
+   delay: 5,
+ },
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 20,

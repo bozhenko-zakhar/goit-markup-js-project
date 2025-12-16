@@ -12,19 +12,19 @@
   width: 100%;
   height: 100%;
   display: block;
-  stroke: #02060a;     /* контур */
+  stroke: #02060a;
   stroke-width: 1.5px;
 }
 
 /* Повна зірка */
 .star.filled svg {
-  fill: #02060a;       /* чорна */
+  fill: #02060a;     
 }
 
 /* Половинка та порожня зірка */
 .star.half svg,
 .star.empty svg {
-  fill: #fff;          /* біла */
+  fill: #fff;
 }
 
 /* Адаптив для мобільних */
@@ -57,6 +57,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+    margin-bottom: 40px;
   }
   .testimonial-quote{
   font-family: "IBM Plex Sans", sans-serif;
@@ -77,5 +78,26 @@ font-weight: 600;
 font-size: 14px;
 line-height: 1.5;
 color: #02060a;
+margin: 0px;
   }
+
+  .swiper-pagination{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #d1d5db;
+  fill: none;
+  opacity: 1;
+  transition: all 0.25s ease;
+  
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #02060a;
+
+}
 }
