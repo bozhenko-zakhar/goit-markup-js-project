@@ -3,29 +3,52 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'css-star-rating/css/star-rating.css';
-
-
 
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 
 function renderStars(value) {
-  const rating = parseFloat(value);
-  const rounded = Math.round(rating * 2) / 2;
-  const integerPart = Math.floor(rounded);
-  const hasHalf = rounded % 1 !== 0;
+  const rating = parseFloat(value) || 0;              
+  const rounded = Math.round(rating * 2) / 2;         
+  const fullStars = Math.floor(rounded);
+  const hasHalf = (rounded - fullStars) === 0.5;
+  const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
 
-  return `
-    <div class="rating star-icon color-default value-${integerPart} ${hasHalf ? 'half' : ''}">
-      <div class="star-container">
-        ${Array(5).fill(`
-          <div class="star">
-            <i class="star-empty"></i>
-            <i class="star-half"></i>
-            <i class="star-filled"></i>
-          </div>`).join('')}
+  let starsMarkup = '';
+
+  // Повні зірки
+  for (let i = 0; i < fullStars; i++) {
+    starsMarkup += `
+      <div class="star">
+        <svg class="star-icon">
+          <use xlink:href="../img/sprite.svg#icon-star-filled"></use>
+        </svg>
       </div>
-    </div>`;
+    `;
+  }
+
+  // Половинка
+  if (hasHalf) {
+    starsMarkup += `
+      <div class="star">
+        <svg class="star-icon">
+          <use xlink:href="../img/sprite.svg#icon-star-half"></use>
+        </svg>
+      </div>
+    `;
+  }
+
+  // Порожні зірки
+  for (let i = 0; i < emptyStars; i++) {
+    starsMarkup += `
+      <div class="star">
+        <svg class="star-icon">
+          <use xlink:href="../img/sprite.svg#icon-star-empty"></use>
+        </svg>
+      </div>
+    `;
+  }
+
+  return `<div class="rating">${starsMarkup}</div>`;
 }
 
 async function getFeedbacks() {
@@ -46,9 +69,9 @@ function renderSlides(feedbacks) {
   const markup = feedbacks.map(fb => `
     <div class="swiper-slide">
       <div class="testimonial-card">
-         <div class="js-testimonials-star">${renderStars(fb.rate)}</div>
-         <p class="testimonial__quote">${fb.description}</p>
-         <p class="testimonial__author">${fb.author}</p>
+        ${renderStars(fb.rate)}
+        <p class="testimonial__quote">${fb.description}</p>
+        <p class="testimonial__author">${fb.author}</p>
       </div>
     </div>
   `).join('');
@@ -61,7 +84,7 @@ function initSwiper() {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 20,
-    observer: true, 
+    observer: true,
     observeParents: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -77,7 +100,6 @@ function initSwiper() {
       }
     }
   });
-  console.log("Swiper ініціалізується!");
 }
 
 getFeedbacks();

@@ -1,57 +1,57 @@
+.rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
 
-/*Styles for Mobile devices */
+.star {
+  width: 20px;
+  height: 20px;
+}
+
+.star svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  stroke: #02060a;     /* контур */
+  stroke-width: 1.5px;
+}
+
+/* Повна зірка */
+.star.filled svg {
+  fill: #02060a;       /* чорна */
+}
+
+/* Половинка та порожня зірка */
+.star.half svg,
+.star.empty svg {
+  fill: #fff;          /* біла */
+}
+
+/* Адаптив для мобільних */
 @media screen and (max-width: 374px) {
-.testimonial-title{
-display: flex;
-align-items: center;
-justify-content: flex-start;
-flex-direction: column;
-gap: 24px;
-margin-bottom: 40px;
-}
-/*ready*/
-.testimonial-head{
-font-weight: 700;
-font-size: 36px;
-line-height: 1.2;
-letter-spacing: -0.01em;
-text-align: center;
-color: #02060a;
-}
-/*ready*/
-.testimonial-text{
-font-family: "IBM Plex Sans", sans-serif;
-line-height: 1.5;
-text-align: center;
-color: #02060a;
-}
-/*ready*/
-.testimonial-star{
-display: flex;
-align-items: center;
-justify-content: flex-start;
-flex-direction: row;
-gap: 32px;
-}
-.star-empty {
-  background: url('../img/icon-star-outline.svg') no-repeat center;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-}
-
-.star-half {
-  background: url('../img/icon-star-half.svg') no-repeat center;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-}
-
-.star-filled {
-  background: url('../img/icon-star-filled.svg') no-repeat center;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-}
-
+  .testimonial-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .testimonial-head {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #02060a;
+    margin: 0;
+  }
+  .testimonial-text {
+    font-family: "IBM Plex Sans", sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    color: #02060a;
+    margin: 0;
+  }
 }
