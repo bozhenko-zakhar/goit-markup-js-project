@@ -1,0 +1,232 @@
+.animla-detail-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animla-detail-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.animal-detail-modal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform .25s cubic-bezier(.4, 0, .2, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    max-width: 335px;
+    background-color: #f6f4f1;
+    max-height: 100vh;
+    height: auto;
+    overflow: hidden;
+}
+
+.animla-detail-backdrop:not(.is-open) .animal-detail-modal {
+    transform: translate(-50%, -100%);
+}
+
+.animal-detail-close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.animal-detail-close-svg {
+    stroke-width: 1px;
+    stroke: #02060a;
+}
+
+.animal-detail-close-btn:hover {
+    stroke: #88765c;
+}
+
+.animal-detail-close-btn:active {
+    stroke: #88765c;
+}
+
+.animal-detail-picture {
+    border-radius: 8px;
+    margin-bottom: 32px;
+}
+
+.animal-detail-info-wrap {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.animal-detail-animal {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.animal-detail-headline {
+    margin-bottom: 8px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.animal-detail-short-info {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+}
+
+.animal-detail-descript-item {
+    line-height: 1.5;
+}
+
+.animal-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.animal-detail-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.animal-detail-info-span {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.animal-detail-get-btn {
+    border: 1px solid #88765c;
+    border-radius: 8px;
+    padding: 12px 24px;
+    width: 295px;
+    height: 45px;
+    background-color: #88765c;
+    outline: none;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.animal-detail-get-btn:hover{
+    background-color: #eee9e3;
+    color: #02060a;
+}
+
+.animal-detail-get-btn:active{
+    box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03), inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+    background: #eee9e3;
+}
+
+.animal-detail-get-btn-top {
+    display: none;
+}
+
+.animal-detail-get-btn-botom {
+    display: block;
+}
+
+@media screen and (min-width: 375px) {
+    .animal-detail-modal {
+        width: 335px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .animal-detail-modal {
+        min-width: 704px;
+        height: 685px;
+        flex-direction: row;
+    }
+
+    .animal-detail-picture {
+        width: 304px;
+        height: 450px;
+    }
+
+    .animal-detail-get-btn {
+        width: 304px;
+        height: 45px;
+    }
+
+    .animal-detail-get-btn-top {
+        display: block;
+    }
+
+    .animal-detail-get-btn-botom {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .animal-detail-modal {
+        min-width: 1312px;
+        height: 650px;
+    }
+
+    .animal-detail-picture {
+        width: 576px;
+        height: 450px;
+    }
+
+    .animal-detail-animal {
+        font-size: 14px;
+    }
+
+    .animal-detail-headline {
+        font-size: 40px;
+    }
+
+    .animal-detail-descript-item {
+        font-size: 14px;
+    }
+
+    .animal-detail-info-item {
+        font-size: 16px;
+    }
+
+    .animal-detail-info-span {
+        font-size: 16px;
+    }
+
+    .animal-detail-get-btn {
+        font-size: 16px;
+        width: 576px;
+        height: 48px;
+    }
+
+    .animal-detail-get-btn-top {
+        display: none;
+    }
+
+    .animal-detail-get-btn-botom {
+        display: block;
+    }
+}
