@@ -1,1 +1,31 @@
-<h2>adopt modal</h2>
+<!-- <section>adopt modal</section> -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="adopt-modal">
+    <button class="adopt-modal-close" data-modal-close>
+      <svg class="adopt-modal-svg" width="24" height="24">
+        <use href="../img/sprite.svg.#icon-close"></use>
+      </svg>
+    </button>
+
+    <h2 class="adopt-modal-title">Залишіть заявку на знайомство</h2>
+
+    <form class="adopt-modal-form">
+      <label>
+        Ім’я
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        Телефон
+        <input type="tel" name="phone" required />
+      </label>
+
+      <label>
+        Коментар
+        <textarea name="comment"></textarea>
+      </label>
+
+      <button type="submit">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
