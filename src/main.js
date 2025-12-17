@@ -1,0 +1,7 @@
+import "./js/sections/header.js"
+import "./js/sections/hero.js"
+import "./js/sections/product.js"
+import "./js/sections/gallery.js"
+import "./js/sections/faq.js"
+import "./js/sections/testimonial.js"
+import "./js/sections/footer.js"
