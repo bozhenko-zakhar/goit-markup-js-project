@@ -68,6 +68,8 @@
 .animal-detail-picture {
     border-radius: 8px;
     margin-bottom: 32px;
+    width: 295px;
+    height: 295px;
 }
 
 .animal-detail-info-wrap {
@@ -169,6 +171,7 @@
     .animal-detail-picture {
         width: 304px;
         height: 450px;
+        margin: 0 auto;
     }
 
     .animal-detail-get-btn {

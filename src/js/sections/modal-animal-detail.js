@@ -1,33 +1,27 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
-import { getAnimalById } from "./modal-animal-detail-api";
+import { dataStorage } from "./product-refs";
 
 
-export const refs = {
+
+const refs = {
     backdrop: document.querySelector(".animal-detail-backdrop"),
 }
 
 document.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("product-card__btn--learnMore")) return;
+    const moreInformationBtn = e.target.closest(".product-card__btn--learnMore")
+    if (!moreInformationBtn) return;
     
-    const id = e.target.dataset.modalId;
+    
+    const id = moreInformationBtn.dataset.modalId;
     openAnimalModal(id);
 });
 
-async function openAnimalModal(id) {
-    try {
-        const animal = await getAnimalById(id);
+function openAnimalModal(id) {
+    const animal = dataStorage.animals.get(id);
 
-        refs.backdrop.innerHTML = createMarkup(animal);
-        refs.backdrop.classList.add("is-open");
-    }
-    catch {
-        iziToast.error({
-            message: "Щось пішло не так. Спробуйте ще раз пізніше.",
-            position: "topRight",
-        });
-    }
-    
+    if (!animal) return;
+
+    refs.backdrop.innerHTML = createMarkup(animal);
+    refs.backdrop.classList.add("is-open")
 }
 
 function createMarkup({image, species, name, age, gender, description, healthStatus, behavior}) {
