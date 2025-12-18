@@ -13,15 +13,57 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script type="module" crossorigin src="/goit-markup-js-project/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-markup-js-project/assets/index-DUTs3yNq.css">
+    <link rel="stylesheet" crossorigin href="/goit-markup-js-project/assets/index-Ci70FP7c.css">
   </head>
   <body>
 		
-		<header>
-	<div class="container">
-		
-	</div>
+		<!-- header section -->
+
+<header class="header header__top">
+  <div class="header__container container">
+    <a href="#top" class="header__link-logo">
+      <img id="header-logo" src="../img/header/logo.webp" alt="Хатинка лапок" />
+    </a>
+    <div class="header__desktop-container">
+      <nav class="header__nav" aria-label="Головна навігація">
+        <a class="nav-item" href="#products">Знайди друга</a>
+        <a class="nav-item" href="#about">Про нас</a>
+        <a class="nav-item" href="#faq">Часті запитання</a>
+        <a class="nav-item" href="#testimonial">Історії успіху</a>
+      </nav>
+
+      <a href="#order" class="header__button button__black-default"
+        >Взяти друга</a
+      >
+    </div>
+
+    <button
+      class="header__burger"
+      aria-label="Відкрити меню"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button"
+    >
+      <span class="header__burger-lines" aria-hidden="true"></span>
+    </button>
+  </div>
 </header>
+<!-- mobile menu -->
+<div class="modal-menu" id="mobile-menu">
+  <div class="modal-menu__container container">
+    <nav class="modal-menu__nav" aria-label="Головна навігація">
+      <a class="nav-item" href="#products">Знайди друга</a>
+      <a class="nav-item" href="#about">Про нас</a>
+      <a class="nav-item" href="#faq">Часті запитання</a>
+      <a class="nav-item" href="#testimonial">Історії успіху</a>
+    </nav>
+
+    <a href="#order" class="modal-menu__button button__black-default"
+      >Взяти друга</a
+    >
+  </div>
+</div>
+
 		
 		<section class="section product">
 	<div class="container">
