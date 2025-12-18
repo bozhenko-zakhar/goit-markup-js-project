@@ -1,3 +1,5 @@
+/*header styles*/
+
 .header {
   font-family: 'IBM Plex Sans', sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -85,7 +87,7 @@
 .header__burger.is-open::after {
   transform: rotate(-45deg);
 }
-
+/*mobile-menu styles*/
 .modal-menu {
   font-size: 14px;
 
@@ -123,7 +125,7 @@
   margin-bottom: 64px;
   align-items: flex-start;
 }
-
+/*mobile-menu btn styles*/
 .modal-menu__button {
   text-align: center;
   padding: 8px 0;
@@ -165,6 +167,7 @@
   overflow: hidden;
 }
 
+/*MEDIA styles*/
 @media (min-width: 768px) {
   .header {
     font-size: 16px;
