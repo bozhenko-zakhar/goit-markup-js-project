@@ -6,20 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project-11</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swapfamily=Open+Sans:wght@7400;00&display=swap" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swapfamily=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <script type="module" crossorigin src="/goit-markup-js-project/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-markup-js-project/assets/vendor-DlJ-zhZ8.js">
+    <link rel="modulepreload" crossorigin href="/goit-markup-js-project/assets/vendor-BdqiGYGf.js">
     <link rel="stylesheet" crossorigin href="/goit-markup-js-project/assets/vendor-Ct6ptYPf.css">
-    <link rel="stylesheet" crossorigin href="/goit-markup-js-project/assets/index-0c4oo7f4.css">
+    <link rel="stylesheet" crossorigin href="/goit-markup-js-project/assets/index-DyeTRARS.css">
   </head>
   <body>
-		
-		<!-- header section -->
+    <!-- header section -->
 
 <header class="header header__top">
   <div class="header__container container">
@@ -66,7 +74,7 @@
   </div>
 </div>
 
-		
+    
 <section class="hero-section">
   <div class="container hero-container">
     <h1 class="hero-title">
@@ -80,7 +88,7 @@
   </div>
 </section>
 
-		<section class="products">
+    <section class="products">
 	<div class="container products-container">
 		<div class="products-thumb">
 			<h2 class="products-title">Наші хвостики</h2>
@@ -115,7 +123,7 @@
 	
 
 </section>
-		<section class="gallery">
+    <section class="gallery">
   <div class="container">
     <h2 class="galleryTitle">Чому Хатинка Лапок</h2>
     <div class="swiper gallerySwiper">
@@ -303,7 +311,7 @@
   </div>
 </section>
 
-		<section class="section" id="faq">
+    <section class="section" id="faq">
 
 	<div class="container">
 
@@ -494,7 +502,7 @@
 
 </div>
 </section>
-		<section class="section testimonial">
+    <section class="section testimonial">
 	<div class="container">
     <div class="testimonial-title">
 		  <h2 class="testimonial-head">Щасливі історії, <br class="desktop-br">що надихають</h2>
@@ -519,7 +527,7 @@
 
 
 
-		<footer class="footer">
+    <footer class="footer">
     <div class="container footer-text-container">
         <div class="footer-nav-social-menu">
             <nav class="footer-nav">
@@ -562,6 +570,56 @@
     </div>
     </div>
 </footer>
+    <!-- <section>adopt modal</section> -->
+<div class="backdrop" data-modal>
+  <div class="adopt-modal">
+    <button class="adopt-modal-close" data-modal-close>
+      <svg class="adopt-modal-svg" width="24" height="24">
+        <use href="../img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <h2 class="adopt-modal-title">Залишіть заявку на знайомство</h2>
+
+    <form class="adopt-modal-form">
+      <label>
+        <p class="adopt-text">Ім’я*</p>
+        <input
+          type="text"
+          class="form-name"
+          name="name"
+          placeholder="Андрій"
+          required
+        />
+      </label>
+
+      <label>
+        <p class="adopt-text">Телефон*</p>
+        <input
+          type="tel"
+          class="form-name"
+          name="phone"
+          placeholder="+38 (095) 555 99 22"
+          required
+        />
+      </label>
+
+      <label>
+        <p class="adopt-text">Коментар</p>
+        <textarea
+          class="form-name adopt-textarea"
+          name="comment"
+          placeholder="Напишіть ваш коментар"
+        ></textarea>
+      </label>
+
+      <button type="submit" class="submit-adopt">
+        <p class="text-submit-adopt">Надіслати</p>
+      </button>
+    </form>
+  </div>
+</div>
+
 
 		<div class="animal-detail-backdrop"></div>
 
