@@ -9,7 +9,7 @@
     ),
     image-set(
       url('../img/hero/hero-background-mobile-min.jpg') 1x,
-			url('../img/hero/hero-background-mobile@2x-min.jpg') 2x
+      url('../img/hero/hero-background-mobile@2x-min.jpg') 2x
     );
   background-repeat: no-repeat, no-repeat;
   background-position: left top, center;
@@ -23,6 +23,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: #fff;
+  max-width: 335px;
 }
 
 .hero-descr {
@@ -33,6 +34,7 @@
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
+  max-width: 335px;
 }
 
 .hero-button {
@@ -52,6 +54,7 @@
 .hero-button:hover {
   background-color: #eee9e3;
 
+  border: 1px solid #88765c;
   color: #02060a;
 }
 
@@ -71,17 +74,17 @@
         rgba(62, 54, 38, 0) 100%
       ),
       image-set(
-      	url('../img/hero/hero-background-tablet-min.jpg') 1x,
-				url('../img/hero/hero-background-tablet@2x-min.jpg') 2x
+        url('../img/hero/hero-background-tablet-min.jpg') 1x,
+        url('../img/hero/hero-background-tablet@2x-min.jpg') 2x
       );
   }
 
   .hero-title {
-    width: 622px;
+    max-width: 622px;
   }
 
   .hero-descr {
-    width: 512px;
+    max-width: 512px;
     margin-top: 24px;
     margin-bottom: 32px;
   }
@@ -91,6 +94,8 @@
   .hero-container {
     padding-top: 128px;
     padding-bottom: 412px;
+    padding-left: 64px;
+    padding-right: 64px;
 
     background-image: linear-gradient(
         to right,

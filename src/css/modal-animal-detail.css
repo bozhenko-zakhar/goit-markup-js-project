@@ -1,0 +1,62 @@
+.animal-detail-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.25);
+	z-index: 999;
+
+	opacity: 0;
+	pointer-events: none;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.animal-detail-modal {
+	position: absolute;
+	top: 128px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 335px;
+	background: #f6f4f1;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animal-detail-close-btn {}
+
+.animal-detail-close-svg {}
+
+.animal-detail-picture-wrap {}
+
+.animal-detail-picture {}
+
+.animal-detail-info-wrap {}
+
+.animal-detail-animal {}
+
+.animal-detail-headline {}
+
+.animal-detail-short-info {}
+
+.animal-detail-descript-item {}
+
+.animal-detail-get-btn {}
+
+.animal-detail-get-btn-top {}
+
+.animal-detail-get-btn-botom {}
+
+.animal-detail-info {}
+
+.animal-detail-info-item {}
+
+.animal-detail-info-span {}

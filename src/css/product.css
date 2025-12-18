@@ -1,0 +1,414 @@
+/* mobile: 320–374 — гумова */
+@media screen and (max-width: 374px) {}
+
+/* mobile adaptive */
+@media screen and (min-width: 375px) {}
+
+.products {
+    padding: 64px 0 32px;
+
+    background-color: #f6f4f1;
+}
+.container {
+    /* max-width: 768px; */
+    margin: 0 auto;
+}
+.products-container {
+    display: flex;
+    flex-direction: column;
+}
+.products-thumb {
+    /* max-width: 768px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.products-title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #02060a;
+}
+.products-text {
+    font-family: "IBM Plex Sans", sans-serif;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #02060a;
+}
+.categories-list {
+    display: flex;
+
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+   
+    margin-bottom: 32px;
+}
+.categories__btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #02060a;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+
+    background: transparent;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.categories__btn--active {
+    background: #eee9e3;
+}
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+    align-items: stretch;
+    
+    gap: 32px;
+    margin-bottom: 40px;
+}
+.products-item {
+    width: 100%;
+}
+/* =======css for card=========== */
+.product-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
+
+    border-radius: 16px;
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+
+    background: #eee9e3;
+}
+.product-card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* Я винесла aspect-ratio в обгортку,
+щоб зображення залишалося гумовим і підлаштовувалося під контейнер,
+а не міняло власні пропорції */
+.product-card__image-wrapper {
+    width: 100%;
+    aspect-ratio: 311 / 245;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
+}
+.product-card__title {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    
+    margin-bottom: 4px;
+
+    line-height: 1.5;
+    color: #02060a;
+}
+.product-card__name {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+    margin-bottom: 4px;
+    
+    /* line-height: 28px; */
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: #02060a;
+}
+.product-card__categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 68px;
+    gap: 4px;
+
+    
+
+    margin-bottom: 11px;
+    padding: 0;
+    list-style: none;
+}
+.product-card__category {
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(2, 6, 10, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0);
+    
+    font-family: "IBM Plex Sans", sans-serif;
+    
+    font-weight: 600;
+    font-size: 10px;
+
+    /* line-height: 15px; */
+    line-height: 1.5;
+    color: #02060a;
+
+    white-space: nowrap;
+}
+.product-card__meta {
+    font-family: "IBM Plex Sans", sans-serif;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 16px;
+
+    font-weight: 400;
+    font-size: 10px;
+    
+    /* line-height: 15px; */
+    line-height: 1.5;
+    color: #02060a;
+
+    margin-bottom: 16px;
+}
+
+.product-card__info {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+    /* line-height: 18px; */
+    line-height: 1.5;
+    color: #02060a;
+
+    margin-bottom: 16px;
+
+    flex-grow: 1; 
+}
+.product-card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+
+    border: 1px solid #02060a;
+    border-radius: 8px;
+    padding: 8px 20px;
+    width: 100%;
+    height: 40px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    
+    /* line-height: 21px; */
+    line-height: 1.5;
+    color: #02060a;
+
+    margin-top: auto;
+
+}
+/* =========divNotFound============= */
+.not-found {
+    display: none;
+}
+.not-found--visible {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+/* ================loader=============== */
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid;
+    border-color: #FFF #FFF transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    z-index: 9999;
+}
+
+.loader::after,
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #FF3D00 #FF3D00;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+}
+
+.loader::before {
+    width: 32px;
+    height: 32px;
+    border-color: #FFF #FFF transparent transparent;
+    animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/*=========button "Показати більше" =====*/
+.products-load-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 8px;
+    border: 1px solid #88765c;
+    border-radius: 8px;
+    padding: 12px 24px;
+    width: 335px;
+    height: 45px;
+    background: #88765c;
+}
+.hidden {
+    display: none;
+}
+.product-card__btn {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card__btn:hover,
+.product-card__btn:focus-visible {
+    background-color: #c3b49d;
+}
+.product-card__btn:active {
+    box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03), inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+    background: #c3b49d;
+}
+.product-card__btn:disabled {
+    background-color: #e0dbd3;
+    color: #ffffff;
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
+
+/* tablet */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 704px;
+        margin: 0 auto;
+    }
+    .categories-list {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        /* gap: 24px; */
+
+    }
+    .products-thumb {
+        margin-bottom: 32px;
+    }
+    .product-card__image-wrapper {
+        aspect-ratio: 336 / 240;
+    }
+        
+    .products-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* desktop */
+@media screen and (min-width: 1440px) {
+    .products {
+        padding: 80px 64px 32px;
+    }
+    .container {
+        max-width: 1312px;
+        margin: 0 auto;
+    }
+    .products-thumb {
+        margin-bottom: 40px;
+    }
+    .products-title {
+        font-size: 48px;
+        line-height: 58px;
+    }
+    .products-text {
+        font-size: 18px;
+    }
+    
+    .categories-list {
+        
+        align-items: flex-start;
+        /* gap: 24px;  */
+        margin-bottom: 40px; 
+    }
+    .products-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+        .product-card__image-wrapper {
+            aspect-ratio: 400 / 280;
+        }
+        .products-item {
+            width: 100%;
+        }
+        .products-load-more {
+            width: 192px;
+            height: 48px;
+        }
+}
