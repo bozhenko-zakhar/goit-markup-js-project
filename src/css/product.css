@@ -10,20 +10,21 @@
     background-color: #f6f4f1;
 }
 .container {
-    display: flex;
+    /* max-width: 768px; */
+    margin: 0 auto;
 }
 .products-container {
     display: flex;
     flex-direction: column;
 }
-
 .products-thumb {
+    /* max-width: 768px; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 .products-title {
     font-family: "Open Sans", sans-serif;
@@ -43,21 +44,16 @@
     text-align: center;
     color: #02060a;
 }
-
 .categories-list {
     display: flex;
 
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
-    /* justify-content: flex-start; */
-    /* flex-direction: column; */
-    gap: 32px;
+   
     margin-bottom: 32px;
 }
 .categories__btn {
-
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -67,7 +63,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
 
     padding: 10px 16px;
     border-radius: 100px;
@@ -82,7 +77,6 @@
 .categories__btn--active {
     background: #eee9e3;
 }
-
 .products-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
@@ -91,11 +85,9 @@
     gap: 32px;
     margin-bottom: 40px;
 }
-
 .products-item {
     width: 100%;
 }
-
 /* =======css for card=========== */
 .product-card {
     display: flex;
@@ -111,19 +103,26 @@
 
     background: #eee9e3;
 }
-
 .product-card__body {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
-
-.product-card__image {
+/* Я винесла aspect-ratio в обгортку,
+щоб зображення залишалося гумовим і підлаштовувалося під контейнер,
+а не міняло власні пропорції */
+.product-card__image-wrapper {
     width: 100%;
     aspect-ratio: 311 / 245;
-    object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 16px;  
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.product-card__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
 }
 .product-card__title {
     font-family: "IBM Plex Sans", sans-serif;
@@ -150,7 +149,10 @@
 .product-card__categories {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    height: 68px;
     gap: 4px;
+
     
 
     margin-bottom: 11px;
@@ -193,9 +195,6 @@
     margin-bottom: 16px;
 }
 
-.product-card__meta-item {
-
-}
 .product-card__info {
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
@@ -243,6 +242,71 @@
     justify-content: flex-start;
     flex-direction: column;
 }
+
+/* ================loader=============== */
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid;
+    border-color: #FFF #FFF transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    z-index: 9999;
+}
+
+.loader::after,
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent #FF3D00 #FF3D00;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+}
+
+.loader::before {
+    width: 32px;
+    height: 32px;
+    border-color: #FFF #FFF transparent transparent;
+    animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
 /*=========button "Показати більше" =====*/
 .products-load-more {
     display: flex;
@@ -290,12 +354,16 @@
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
-        gap: 24px;
+        /* gap: 24px; */
 
     }
-        .products-thumb {
-            margin-bottom: 32px;
-        }
+    .products-thumb {
+        margin-bottom: 32px;
+    }
+    .product-card__image-wrapper {
+        aspect-ratio: 336 / 240;
+    }
+        
     .products-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -312,19 +380,30 @@
         max-width: 1312px;
         margin: 0 auto;
     }
-        .products-thumb {
-            margin-bottom: 40px;
-        }
+    .products-thumb {
+        margin-bottom: 40px;
+    }
+    .products-title {
+        font-size: 48px;
+        line-height: 58px;
+    }
+    .products-text {
+        font-size: 18px;
+    }
+    
     .categories-list {
         
         align-items: flex-start;
-        gap: 24px; 
+        /* gap: 24px;  */
         margin-bottom: 40px; 
     }
     .products-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+        .product-card__image-wrapper {
+            aspect-ratio: 400 / 280;
+        }
         .products-item {
             width: 100%;
         }

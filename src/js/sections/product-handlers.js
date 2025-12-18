@@ -4,7 +4,9 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { fetchAllProducts, fetchCategories, fetchProductsByCategory } from "./product-api";
 import { renderCategories, renderProducts } from "./product-render-function";
 import {
-    getScreenType, getLimitByScreenType, debounce, clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus
+    getScreenType, getLimitByScreenType, debounce, clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
+    showLoader,
+    hideLoader
 } from "./product-helpers";
 import { refs } from "./product-refs";
 
@@ -49,6 +51,7 @@ window.addEventListener('resize', handleResize);
 // =============================================================//
 export const initProducts = async () => {
     clearProducts();
+    showLoader();
     try {
         const limit = getLimitByScreenType(currentScreenType);
         const { animals, totalItems } = await fetchAllProducts(currentPage, limit);
@@ -61,7 +64,9 @@ export const initProducts = async () => {
     } catch (error) {
         console.log(error);
         iziToast.error({message: 'Oops, something went wrong!' })
-        
+    }
+    finally {
+        hideLoader();
     }
 }
 // ==============================================================
@@ -77,7 +82,7 @@ export const getProductsByCategory = async (e) => {
     clearProducts();
     changeActiveBtn(e.target);
     refs.divNotFound.classList.remove('not-found--visible');
-
+    showLoader();
     try {
         if (activeCategory === 'all') {
             const { animals, totalItems } = await fetchAllProducts(currentPage, limit);  
@@ -106,6 +111,8 @@ export const getProductsByCategory = async (e) => {
     } catch (error){
         console.log(error);
         iziToast.error({message: 'Oops, something went wrong!' })
+    } finally {
+        hideLoader();
     }
 }
 refs.categoryList.addEventListener('click', getProductsByCategory);
@@ -116,7 +123,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     
     currentPage += 1;
     const limit = getLimitByScreenType(currentScreenType);
-
+    showLoader();
     try {
         if (activeCategory === 'all') {
             const { animals } = await fetchAllProducts(currentPage, limit);
@@ -141,5 +148,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     } catch (error) {
         console.log(error);
         iziToast.error({ message: 'Oops, something went wrong!' });
-    };
+    } finally {
+        hideLoader();
+    }
 });

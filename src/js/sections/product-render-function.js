@@ -23,8 +23,11 @@ export const renderProducts = (data) => {
             return `
             <li class="product-card" data-id="${_id}">
                 <article class="product-card__body">
-                    <img class="product-card__image" src="${image}" alt="${species}" loading="lazy" width="392" height="309"/>
                 
+                <div class="product-card__image-wrapper">
+                    <img class="product-card__image" src="${image}" alt="${species}" loading="lazy" width="392" height="309"/>
+                </div>
+                    
                     <p class="product-card__title">${species}</p>
                     <h3 class="product-card__name">${name}</h3>
 
