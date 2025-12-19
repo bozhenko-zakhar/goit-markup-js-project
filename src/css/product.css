@@ -9,10 +9,7 @@
 
     background-color: #f6f4f1;
 }
-.container {
-    /* max-width: 768px; */
-    margin: 0 auto;
-}
+
 .products-container {
     display: flex;
     flex-direction: column;
@@ -346,10 +343,6 @@
 
 /* tablet */
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 704px;
-        margin: 0 auto;
-    }
     .categories-list {
         flex-wrap: wrap;
         flex-direction: row;
@@ -375,10 +368,6 @@
 @media screen and (min-width: 1440px) {
     .products {
         padding: 80px 64px 32px;
-    }
-    .container {
-        max-width: 1312px;
-        margin: 0 auto;
     }
     .products-thumb {
         margin-bottom: 40px;
