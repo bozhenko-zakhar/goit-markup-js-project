@@ -5,3 +5,5 @@ import "./js/sections/gallery.js"
 import "./js/sections/faq.js"
 import "./js/sections/testimonial.js"
 import "./js/sections/footer.js"
+import "./js/sections/modal-animal-detail.js"
+import './js/sections/adopt-modal';
