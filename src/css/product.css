@@ -5,9 +5,7 @@
 @media screen and (min-width: 375px) {}
 
 .products {
-    padding: 64px 0 32px;
-
-    background-color: #f6f4f1;
+		background-color: #f6f4f1;
 }
 .container {
     /* max-width: 768px; */
@@ -346,10 +344,6 @@
 
 /* tablet */
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        margin: 0 auto;
-    }
     .categories-list {
         flex-wrap: wrap;
         flex-direction: row;
@@ -373,13 +367,6 @@
 
 /* desktop */
 @media screen and (min-width: 1440px) {
-    .products {
-        padding: 80px 64px 32px;
-    }
-    .container {
-        max-width: 1440px;
-        margin: 0 auto;
-    }
     .products-thumb {
         margin-bottom: 40px;
     }
