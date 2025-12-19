@@ -6,7 +6,8 @@ import { renderCategories, renderProducts } from "./product-render-function";
 import {
     getScreenType, getLimitByScreenType, debounce, clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
     showLoader,
-    hideLoader
+    hideLoader,
+    hideLoadMoreButton
 } from "./product-helpers";
 import { refs } from "./product-refs";
 
@@ -41,9 +42,9 @@ export const handleResize = debounce(async () => {
     if (newScreenType === currentScreenType) return;
 
     currentScreenType = newScreenType;
-    currentPage = 1;
+    // currentPage = 1;
 
-    await initProducts();
+    // await initProducts();
 }, 300);
 
 window.addEventListener('resize', handleResize);
@@ -58,7 +59,7 @@ export const initProducts = async () => {
         
         renderProducts(animals);
         totalPages = Math.ceil(totalItems / limit);
-        console.log(totalPages);
+        
         checkBtnStatus(currentPage, totalPages);
 
     } catch (error) {
@@ -81,15 +82,14 @@ export const getProductsByCategory = async (e) => {
     
     clearProducts();
     changeActiveBtn(e.target);
-    refs.divNotFound.classList.remove('not-found--visible');
     showLoader();
+    hideLoadMoreButton();
     try {
         if (activeCategory === 'all') {
             const { animals, totalItems } = await fetchAllProducts(currentPage, limit);  
             
             renderProducts(animals);
             totalPages = Math.ceil(totalItems / limit);
-            console.log(totalPages);
             
             checkBtnStatus(currentPage, totalPages);
         } else {
@@ -98,10 +98,6 @@ export const getProductsByCategory = async (e) => {
                 page: currentPage,
                 limit,
             });
-            // const animals = [];
-            if (animals.length === 0) {
-                refs.divNotFound.classList.add('not-found--visible');
-            }
             renderProducts(animals);
             
             totalPages = Math.ceil(totalItems / limit);
@@ -124,6 +120,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     currentPage += 1;
     const limit = getLimitByScreenType(currentScreenType);
     showLoader();
+    hideLoadMoreButton();
     try {
         if (activeCategory === 'all') {
             const { animals } = await fetchAllProducts(currentPage, limit);
