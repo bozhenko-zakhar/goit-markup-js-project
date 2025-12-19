@@ -1,5 +1,5 @@
-import { dataStorage } from "./product-refs";
-
+import { dataStorage } from "../untils/product-refs";
+import { openModal } from "./adopt-modal";
 
 
 const refs = {
@@ -22,7 +22,13 @@ function openAnimalModal(id) {
     if (!animal) return;
 
     refs.backdrop.innerHTML = createMarkup(animal);
-    refs.backdrop.classList.add("is-open")
+    refs.backdrop.classList.add("is-open");
+		refs.dataBtn = document.querySelector("[data-btn]");
+
+		refs.dataBtn.addEventListener("click", () => {
+			openModal(id);
+			refs.backdrop.classList.remove("is-open")
+		})
 }
 
 function createMarkup({image, species, name, age, gender, description, healthStatus, behavior}) {

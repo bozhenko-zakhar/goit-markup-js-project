@@ -1,4 +1,4 @@
-import { initCategories, initProducts } from "./product-handlers";
+import { initCategories, initProducts } from "../untils/product-handlers";
 
 initCategories();
 initProducts();
