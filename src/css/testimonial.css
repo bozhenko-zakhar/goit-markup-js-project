@@ -174,18 +174,8 @@
   fill: none;
   pointer-events: none;
 }
-/* Адаптив для Mobile */
-@media screen and (min-width: 335px) {
-  .container {
-    max-width: 385px;
-  }
-}
 /* Tablet */
-@media screen and (min-width: 704px) {
-  .container {
-    max-width: 704px;
-    padding: 0 32px;
-  }
+@media screen and (min-width: 768px) {
   .testimonial-title,
   .testimonials-swiper {
     width: 100%;
@@ -195,11 +185,7 @@
   }
 }
 /* Desktop */
-@media screen and (min-width: 1312px) {
-  .container {
-    max-width: 1312px;
-    padding: 0 80px;
-  }
+@media screen and (min-width: 1440px) {
   .testimonial-title,
   .testimonials-swiper {
     width: 100%;
