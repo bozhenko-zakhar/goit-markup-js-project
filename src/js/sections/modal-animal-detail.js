@@ -22,16 +22,14 @@ function openAnimalModal(id) {
     refs.backdrop.innerHTML = createMarkup(animal);
     refs.backdrop.classList.add("is-open");
 
-    document.body.classList.add(".not-scroll");
+    document.body.classList.add("not-scroll");
 
 
 		refs.dataBtn = document.querySelector("[data-btn]");
 
 		refs.dataBtn.addEventListener("click", () => {
 			openModal(id);
-            refs.backdrop.classList.remove("is-open");
-
-
+      closeAnimalModal();
 		})
 }
 
@@ -80,9 +78,9 @@ function createMarkup({image, species, name, age, gender, description, healthSta
 `)
 }
 
-function closeAnimalModal() {
+export function closeAnimalModal() {
     refs.backdrop.classList.remove("is-open");
-    document.body.classList.remove(".not-scroll");
+    document.body.classList.remove("not-scroll");
 };
 
 refs.backdrop.addEventListener("click", (e) => {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { closeAnimalModal } from './modal-animal-detail';
 
 //  STATE & SELECTORS;
 let currentAnimalId = '682f9bbf8acbdf505592ac36';
@@ -13,6 +14,7 @@ export function openModal(animalId) {
   if (animalId) currentAnimalId = animalId;
   backdrop?.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+	closeAnimalModal();
 }
 
 function closeModal() {
@@ -62,19 +64,20 @@ if (formEl) {
       return;
     }
 
-    const orderData = {
-      name: name.value.trim(),
-      phone: onlyDigits,
-      modelId: currentAnimalId,
-      color: '#1212ca',
-      comment: comment.value.trim() || 'Запит на знайомство',
-    };
+    const orderData = 
+			{
+		name: name.value.trim(),
+		phone: onlyDigits,
+		animalId: currentAnimalId,
+		comment: comment.value.trim() || 'Запит на знайомство'
+}
+    
 
     try {
       Swal.showLoading();
 
       const response = await axios.post(
-        'https://furniture-store.b.goit.study/api/orders',
+        'https://paw-hut.b.goit.study/api/orders',
         orderData
       );
 

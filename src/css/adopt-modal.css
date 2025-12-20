@@ -6,12 +6,18 @@
   align-items: center;
   justify-content: center;
   padding: 64px 20px;
+	z-index: 999;
+	overflow: hidden;
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+}
+
+.not-scroll{
+    overflow: hidden;
 }
 
 body.modal-open {
