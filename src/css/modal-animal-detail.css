@@ -19,6 +19,10 @@
 	pointer-events: auto;
 }
 
+.not-scroll{
+    overflow: hidden;
+}
+
 .animal-detail-modal {
 	position: absolute;
 	top: 128px;
