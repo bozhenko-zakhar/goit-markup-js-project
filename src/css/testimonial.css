@@ -94,6 +94,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.swiper-pagination {
+  position: static !important;;
+}
 .testimonials-pagination {
   position: static;
   text-align: left;

@@ -32,6 +32,7 @@
   transform: translateX(-50%);
   width: calc(100% - 40px);
   max-width: 375px;
+	padding: 20px;
 
   display: flex;
   align-items: flex-start;
@@ -47,7 +48,7 @@
 .galleryPagination,
 .gallerySwiper .swiper-button-next,
 .gallerySwiper .swiper-button-prev {
-  display: none;
+  display: block;
 }
 
 @media (min-width: 768px) {
@@ -60,6 +61,7 @@
     bottom: 32px;
     width: calc(100% - 64px);
     max-width: 548px;
+		padding: 32px
   }
 
   .galleryBtn {
@@ -149,6 +151,7 @@
   }
   .p-overlay {
     font-size: 18px;
+		padding: 64px;
   }
 
   .gallerySwiper .swiper-pagination {
