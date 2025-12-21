@@ -7,6 +7,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/keyboard';
 
+renderSlides();
+rednerGallerySvges();
+
 new Swiper('.gallerySwiper', {
   modules: [Navigation, Pagination, Keyboard],
   slidesPerView: 1,
@@ -28,6 +31,3 @@ new Swiper('.gallerySwiper', {
     enabled: true,
   },
 });
-
-renderSlides();
-rednerGallerySvges();
