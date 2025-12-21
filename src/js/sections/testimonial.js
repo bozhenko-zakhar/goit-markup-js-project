@@ -26,7 +26,7 @@ function renderStars(value) {
     starsMarkup += `
       <div class="star ${starClass}">
         <svg class="star-icon">
-          <use href="../img/sprite.svg#${icon}"></use>
+          <use href="./img/sprite.svg#${icon}"></use>
         </svg>
       </div>
     `;
