@@ -14,7 +14,6 @@ function renderStars(value) {
   for (let i = 1; i <= 5; i++) {
     let icon = 'icon-star-outline';
     let starClass = 'outline';
-
     if (i <= Math.floor(rounded)) {
       icon = 'icon-star-filled';
       starClass = 'filled';
@@ -22,7 +21,6 @@ function renderStars(value) {
       icon = 'icon-star-half';
       starClass = 'half';
     }
-
     starsMarkup += `
       <div class="star ${starClass}">
         <svg class="star-icon">
@@ -31,10 +29,8 @@ function renderStars(value) {
       </div>
     `;
   }
-
   return `<div class="rating">${starsMarkup}</div>`;
 }
-
 async function getFeedbacks() {
   try {
     const res = await fetch('https://paw-hut.b.goit.study/api/feedbacks');
@@ -52,7 +48,6 @@ async function getFeedbacks() {
     console.error('Помилка завантаження відгуків:', error);
   }
 }
-
 function renderSlides(feedbackSection) {
   if (!swiperWrapperTestimonials) return;
   swiperWrapperTestimonials.innerHTML = feedbackSection
@@ -69,7 +64,6 @@ function renderSlides(feedbackSection) {
     )
     .join('');
 }
-
 function initSwiper() {
   const section = document.querySelector('.section.testimonial');
   if (!section) return;
@@ -83,7 +77,6 @@ function initSwiper() {
   const nextBtnUse = section.querySelector('.js-testimonials-next svg use');
   if (prevBtnUse) prevBtnUse.setAttribute('href', `${sprite}#icon-arrow_back`);
   if (nextBtnUse) nextBtnUse.setAttribute('href', `${sprite}#icon-arrow_forward`);
-
   const swiper = new Swiper(swiperEl, {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
@@ -98,7 +91,7 @@ function initSwiper() {
       prevEl: prevBtn,
       disabledClass: 'swiper-button-isNotActive',
     },
-keyboard: {
+    keyboard: {
       enabled: true,        
       onlyInViewport: true,  
       pageUpDown: true,      
@@ -113,21 +106,21 @@ keyboard: {
         slidesPerView: 2,
         spaceBetween: 32,
     }},
-    on: {
+  on: {
       slideChange: function () {
         const disabledClass = 'swiper-button-isNotActive';
         
-        if (this.isBeginning) {
+      if (this.isBeginning) {
           prevBtn.classList.add(disabledClass);
-        } else {
+      } else {
           prevBtn.classList.remove(disabledClass);
-        }
+      }
 
-        if (this.isEnd) {
+      if (this.isEnd) {
           nextBtn.classList.add(disabledClass);
-        } else {
+      } else {
           nextBtn.classList.remove(disabledClass);
-        }
+      }
       },
     }
 });
