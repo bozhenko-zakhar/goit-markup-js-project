@@ -1,6 +1,6 @@
 import { dataStorage } from "../untils/product-refs";
 import { openModal } from "./adopt-modal";
-import sprite from "../img/sprite.svg";
+import sprite from "../../img/sprite.svg";
 
 
 const refs = {
