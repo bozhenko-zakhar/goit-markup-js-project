@@ -3,7 +3,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import sprite from "../../img/sprite.svg";
 const swiperWrapperTestimonials = document.querySelector('.testimonials-wrapper');
 
 function renderStars(value) {
@@ -26,7 +26,7 @@ function renderStars(value) {
     starsMarkup += `
       <div class="star ${starClass}">
         <svg class="star-icon">
-          <use href="./img/sprite.svg#${icon}"></use>
+          <use href="${sprite}#${icon}"></use>
         </svg>
       </div>
     `;
@@ -54,6 +54,7 @@ async function getFeedbacks() {
 }
 
 function renderSlides(feedbackSection) {
+  if (!swiperWrapperTestimonials) return;
   swiperWrapperTestimonials.innerHTML = feedbackSection
     .map(
       fb => `
@@ -70,12 +71,20 @@ function renderSlides(feedbackSection) {
 }
 
 function initSwiper() {
-  const section = document.querySelector('.section.testimonial'); // конкретна секція
+  const section = document.querySelector('.section.testimonial');
+  if (!section) return;
+
   const swiperEl = section.querySelector('.testimonials-swiper');
   const nextBtn = section.querySelector('.js-testimonials-next');
   const prevBtn = section.querySelector('.js-testimonials-prev');
   const paginationEl = section.querySelector('.testimonials-pagination');
-  new Swiper(swiperEl, {
+
+  const prevBtnUse = section.querySelector('.js-testimonials-prev svg use');
+  const nextBtnUse = section.querySelector('.js-testimonials-next svg use');
+  if (prevBtnUse) prevBtnUse.setAttribute('href', `${sprite}#icon-arrow_back`);
+  if (nextBtnUse) nextBtnUse.setAttribute('href', `${sprite}#icon-arrow_forward`);
+
+  const swiper = new Swiper(swiperEl, {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     slidesPerGroup: 1,
@@ -98,14 +107,33 @@ keyboard: {
       el: paginationEl,
       clickable: true,
     },
-
     breakpoints: {
       768: {
         slidesPerGroup: 1,
         slidesPerView: 2,
         spaceBetween: 32,
+    }},
+    on: {
+      slideChange: function () {
+        const disabledClass = 'swiper-button-isNotActive';
+        
+        if (this.isBeginning) {
+          prevBtn.classList.add(disabledClass);
+        } else {
+          prevBtn.classList.remove(disabledClass);
+        }
+
+        if (this.isEnd) {
+          nextBtn.classList.add(disabledClass);
+        } else {
+          nextBtn.classList.remove(disabledClass);
+        }
       },
-    },
-  });
+    }
+});
+swiper.emit('slideChange');
 }
+document.addEventListener('DOMContentLoaded', () => {
 getFeedbacks();
+})
+
