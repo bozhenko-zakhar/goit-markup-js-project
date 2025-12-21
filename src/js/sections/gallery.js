@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/keyboard';
 
-const swiper = new Swiper('.swiper', {
+new Swiper('.gallerySwiper', {
   modules: [Navigation, Pagination, Keyboard],
   slidesPerView: 1,
   spaceBetween: 16,
@@ -14,12 +14,12 @@ const swiper = new Swiper('.swiper', {
   loop: false,
 
   navigation: {
-    nextEl: '.swiper .swiper-button-next',
-    prevEl: '.swiper .swiper-button-prev',
+    nextEl: '.gallerySwiper .swiper-button-next',
+    prevEl: '.gallerySwiper .swiper-button-prev',
   },
 
   pagination: {
-    el: '.swiper .swiper-pagination',
+    el: '.gallerySwiper .swiper-pagination',
     clickable: true,
   },
   keyboard: {
