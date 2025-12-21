@@ -1,5 +1,6 @@
 import { dataStorage } from "../untils/product-refs";
 import { openModal } from "./adopt-modal";
+import sprite from "../../img/sprite.svg";
 
 
 const refs = {
@@ -38,7 +39,7 @@ function createMarkup({image, species, name, age, gender, description, healthSta
 		<div class="animal-detail-modal">
 			<button type="button" aria-label="close button" class="animal-detail-close-btn">
 					<svg class="animal-detail-close-svg" width="32" height="32">
-							<use href="/img/sprite.svg#icon-close"></use>
+							<use href="${sprite}#icon-close"></use>
 					</svg>
 			</button>
 			<div class="animal-detail-picture-wrap">
