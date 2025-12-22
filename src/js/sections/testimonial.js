@@ -99,6 +99,7 @@ function initSwiper() {
     pagination: {
       el: paginationEl,
       clickable: true,
+
     },
     breakpoints: {
       768: {

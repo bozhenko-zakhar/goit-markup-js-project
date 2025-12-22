@@ -3,11 +3,11 @@
   display: flex;
   gap: 4px;
 }
-.star {
+.star-icon {
   width: 24px;
   height: 24px;
 }
-.star svg {
+.star-icon svg {
   width: 100%;
   height: 100%;
   display: block;
@@ -15,15 +15,15 @@
   stroke-width: 1.5px;
 }
 /* Повна зірка */
-.star.filled svg {
+.star-icon.filled svg {
   fill: #02060a;
 }
 /* Половинка зірки */
-.star.half svg {
+.star-icon.half svg {
   fill: none;
 }
 /* Порожня зірка */
-.star svg use[href*="icon-star-outline"] {
+.star-icon svg use[href*="icon-star-outline"] {
   fill: #fff;
 }
 /* Загальна структура секції */
@@ -105,31 +105,29 @@
   padding: 20px 0px;
 }
 .swiper-controls .swiper-pagination-bullet {
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
   border-radius: 100%;
-  fill: #02060a;
-  background-color: #d1d5db !important;
-  transform: scale(0.6);
-  transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+  opacity: 1!important;
+  background-color: #d0d4d9 !important;
+  transform: scale(1);
+  transition: transform 0.5s ease, opacity 0.9s ease, background-color 0.5s ease;
 }
 .swiper-controls .swiper-pagination-bullet-active {
   width: 8px;
   height: 8px;
   border-radius: 100%;
-  transform: scale(1.6);
   opacity: 1;
   background-color: #02060a !important;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .swiper-controls .swiper-pagination-bullet-active-prev,
 .swiper-controls .swiper-pagination-bullet-active-next{
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 100%;
-  fill: #02060a;
-  transform: scale(1.1);
-  opacity: 0.6;
+  transform: scale(1.2);
+  opacity: 0.8;
 }
 /* Кнопки навігації */
 .swiper-controls .testimonial-navigation-buttons{
