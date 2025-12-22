@@ -1,7 +1,12 @@
+.hero-section {
+	background-color: #f6f4f1;
+}
+
 .hero-container {
   padding-left: 20px;
   padding-top: 64px;
   padding-bottom: 116px;
+	background-color: #eee9e3;
   background-image: linear-gradient(
       to right,
       rgba(62, 54, 38, 0.74) 0%,
