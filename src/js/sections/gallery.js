@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard } from 'swiper/modules';
-import renderSlides from '../untils/gallery-render-images';
-import rednerGallerySvges from '../untils/gallery-render-svges';
+import renderSlides from '../untils/renders/gallery-render-images';
+import rednerGallerySvges from '../untils/renders/gallery-render-svges';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

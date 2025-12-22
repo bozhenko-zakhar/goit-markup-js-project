@@ -1,6 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import renderTestimonialSvges from '../untils/testimonial-render-svges';
+import renderTestimonialSvges from '../untils/renders/testimonial-render-svges';
+import sprite from "../../img/sprite.svg";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -27,7 +28,7 @@ function renderStars(value) {
     starsMarkup += `
       <div class="star ${starClass}">
         <svg class="star-icon">
-          <use href="../img/sprite.svg#${icon}"></use>
+          <use href="${sprite}#${icon}"></use>
         </svg>
       </div>
     `;

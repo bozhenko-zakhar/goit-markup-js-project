@@ -1,4 +1,4 @@
-import renderHeaderLogo from "../untils/header-render-logo";
+import renderHeaderLogo from "../untils/renders/header-render-logo";
 
 const modalMenuHeader = document.querySelector('.modal-menu');
 const buttonHeaderBurger = document.querySelector('.header__burger');

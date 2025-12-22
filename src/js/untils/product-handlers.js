@@ -2,7 +2,7 @@ import iziToast from "izitoast";
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { fetchAllProducts, fetchCategories, fetchProductsByCategory } from "./product-api";
-import { renderCategories, renderProducts } from "./product-render-function";
+import { renderCategories, renderProducts } from "./renders/product-render-function";
 import {
     getScreenType, getLimitByScreenType, debounce, clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
     showLoader,
