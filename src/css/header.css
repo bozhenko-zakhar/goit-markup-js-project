@@ -1,5 +1,4 @@
 /*header styles*/
-header__link-logo
 .header {
   font-family: 'IBM Plex Sans', sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -90,6 +89,7 @@ header__link-logo
 .header__burger.is-open::after {
   transform: rotate(-45deg);
 }
+
 /*mobile-menu styles*/
 .modal-menu {
   font-size: 14px;
@@ -128,6 +128,7 @@ header__link-logo
   margin-bottom: 64px;
   align-items: flex-start;
 }
+
 /*mobile-menu btn styles*/
 .modal-menu__button {
   text-align: center;

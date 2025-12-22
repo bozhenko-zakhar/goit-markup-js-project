@@ -16,5 +16,5 @@ const markup1 = `
 `;
 
 export default function renderTestimonialSvges() {
-	testimonialNavigationButtons.innerHTML = markup;
+	testimonialNavigationButtons.innerHTML = markup1;
 }

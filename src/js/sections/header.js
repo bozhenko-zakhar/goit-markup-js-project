@@ -1,9 +1,13 @@
 import renderHeaderLogo from "../untils/renders/header-render-logo";
 
+// .modal-menu--open
+// modal-menu modal-menu--open
+
 const modalMenuHeader = document.querySelector('.modal-menu');
 const buttonHeaderBurger = document.querySelector('.header__burger');
 const links = document.querySelectorAll('.modal-menu__nav a');
 const header = document.querySelector('.header');
+const takeFriendBtn = document.querySelector('.modal-menu__button')
 
 function isOpen() {
   return modalMenuHeader.classList.contains('modal-menu--open');
@@ -34,6 +38,7 @@ function toggleMenu() {
 buttonHeaderBurger.addEventListener('click', e => {
   e.stopPropagation();
   toggleMenu();
+	// closeMenu()
 });
 
 document.addEventListener('keydown', e => {
@@ -51,3 +56,7 @@ document.addEventListener('click', e => {
 
 links.forEach(link => link.addEventListener('click', closeMenu));
 renderHeaderLogo();
+
+takeFriendBtn.addEventListener("click", () => {
+	closeMenu();
+})

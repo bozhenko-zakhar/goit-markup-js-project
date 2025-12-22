@@ -1,7 +1,5 @@
 import { initProducts } from "./product-handlers";
 import { refs } from "./product-refs";
-// import { mobile, tablet, desctop } from "./product-refs"
-
 
 const BREAKPOINTS = {
         mobile: 375,
@@ -27,7 +25,6 @@ export const getLimitByScreenType = (screenType) => {
     }
 }
 
-// Без debounce буде 100+ запитів при resize
 export const debounce = (fn, delay = 300) => {
   let timeoutId;
 
@@ -49,7 +46,7 @@ export const smoothScroll = () => {
     const { height: cardHeight } = firstCard.getBoundingClientRect();
 
     window.scrollBy({
-        top: cardHeight * 2,
+        top: cardHeight * 0.5,
         behavior: "smooth"
     });
 }
@@ -57,16 +54,15 @@ export const smoothScroll = () => {
 export const clearProducts = () => {
     refs.productlist.innerHTML = '';
 }
-//===========================================================
+
 export function showLoader() {
     refs.loader.classList.remove("hidden")
 }
-//===========================================================
 
 export function hideLoader() {
     refs.loader.classList.add("hidden")
 }
-//==========================================
+
 export function showLoadMoreButton() {
     refs.loadMoreBtn.classList.remove("hidden")
 }
@@ -76,9 +72,44 @@ export function hideLoadMoreButton() {
 }
 
 export function checkBtnStatus(currentPage, totalPages) {
-    if (currentPage < totalPages) {
+    if (currentPage < totalPages && isMobile()) {
         showLoadMoreButton();
     } else {
         hideLoadMoreButton(); 
     }
 }
+//=============керування пагінацією===========================
+export const updatePaginationButtons = (currentPage, totalPages) => {
+    if (isMobile()) {
+    
+    } else {
+        refs.prevBtn.disabled = currentPage === 1;
+        refs.nextBtn.disabled = currentPage === totalPages;
+    }
+
+    if (totalPages <= 1) {
+        refs.paginationContainer.style.display = 'none';
+    } else {
+        refs.paginationContainer.style.display = 'flex';
+    }
+};
+
+export const showPagination = () => {
+    refs.paginationContainer.style.display = 'flex';
+}
+export const hidePagination = () => {
+    refs.paginationContainer.style.display = 'none';
+}
+export const isMobile = () => {
+    return window.innerWidth < 768;
+}
+
+export const showPaginationOrLoadMore = () => {
+    if (isMobile()) {
+        refs.paginationContainer.style.display = 'none';
+        showLoadMoreButton();
+    } else {
+        hideLoadMoreButton();
+        refs.paginationContainer.style.display = 'flex';
+    }
+};

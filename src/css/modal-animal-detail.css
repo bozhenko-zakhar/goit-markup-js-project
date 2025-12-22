@@ -2,7 +2,6 @@
 	position: fixed;
   inset: 0;
 	display: flex;
-	/* justify-content: center; */
 	align-items: flex-start;
 	width: 100%;
 	height: 100%;
@@ -26,12 +25,6 @@
 .not-scroll{
     overflow: hidden;
 }
-
-/* @media (min-width: 768px){
-    .animal-detail-backdrop{
-        align-items: center;
-    }
-} */
 
 .animal-detail-modal {
 	position: relative;
@@ -87,8 +80,6 @@
 	border: none;
 	background: transparent;
 }
-
-/* .animal-detail-picture-wrap {} */
 
 .animal-detail-picture {
 	object-fit: cover;

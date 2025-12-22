@@ -2,12 +2,19 @@ import iziToast from "izitoast";
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { fetchAllProducts, fetchCategories, fetchProductsByCategory } from "./product-api";
-import { renderCategories, renderProducts } from "./renders/product-render-function";
+import { renderCategories, renderProducts, renderPagination } from "./renders/product-render-function";
 import {
-    getScreenType, getLimitByScreenType, debounce, clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
+    getScreenType, getLimitByScreenType, debounce,
+    clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
     showLoader,
     hideLoader,
-    hideLoadMoreButton
+    hideLoadMoreButton,
+    updatePaginationButtons,
+    hidePagination,
+    showPagination,
+    isMobile,
+    showPaginationOrLoadMore,
+    showLoadMoreButton,
 } from "./product-helpers";
 import { refs } from "./product-refs";
 
@@ -24,8 +31,10 @@ export const initCategories = async () => {
             _id: 'all',
             name: 'Всі',
         };
+        const sorted = [...categories].sort((a, b) =>
+            a._id.localeCompare(b._id));
 
-        renderCategories([allCategory, ...categories]);
+        renderCategories([allCategory, ...sorted]);
 
         const firstBtn = document.querySelector('.categories__btn');
         if (firstBtn) {
@@ -36,30 +45,39 @@ export const initCategories = async () => {
         iziToast.error({ message: 'Oops, something went wrong!' })
     }
 };
-    // ===============Прослуховувач resize=============
+
 export const handleResize = debounce(async () => {
     const newScreenType = getScreenType();
     if (newScreenType === currentScreenType) return;
 
     currentScreenType = newScreenType;
-    // currentPage = 1;
-
-    // await initProducts();
+    
+    showPaginationOrLoadMore();
+    
 }, 300);
 
 window.addEventListener('resize', handleResize);
 
-// =============================================================//
 export const initProducts = async () => {
     clearProducts();
     showLoader();
+    hidePagination();
+    currentPage = 1;
+
     try {
         const limit = getLimitByScreenType(currentScreenType);
         const { animals, totalItems } = await fetchAllProducts(currentPage, limit);
         
-        renderProducts(animals);
+        renderProducts(animals, false);
         totalPages = Math.ceil(totalItems / limit);
         
+        checkBtnStatus(currentPage, totalPages);
+
+        if (!isMobile()) {
+            renderPagination(currentPage, totalPages); 
+        }
+        updatePaginationButtons(currentPage, totalPages);
+        showPaginationOrLoadMore();
         checkBtnStatus(currentPage, totalPages);
 
     } catch (error) {
@@ -70,7 +88,6 @@ export const initProducts = async () => {
         hideLoader();
     }
 }
-// ==============================================================
 
 export const getProductsByCategory = async (e) => {
     if (e.target.nodeName !== 'BUTTON') return;
@@ -83,26 +100,34 @@ export const getProductsByCategory = async (e) => {
     clearProducts();
     changeActiveBtn(e.target);
     showLoader();
-    hideLoadMoreButton();
+    hidePagination();
+
     try {
         if (activeCategory === 'all') {
             const { animals, totalItems } = await fetchAllProducts(currentPage, limit);  
             
-            renderProducts(animals);
+            renderProducts(animals, false);
             totalPages = Math.ceil(totalItems / limit);
-            
-            checkBtnStatus(currentPage, totalPages);
+            checkBtnStatus(currentPage, totalPages)
         } else {
             const { animals, totalItems } = await fetchProductsByCategory({
                 categoryId: activeCategory,
                 page: currentPage,
                 limit,
             });
-            renderProducts(animals);
-            
+            renderProducts(animals, false);
             totalPages = Math.ceil(totalItems / limit);
-            checkBtnStatus(currentPage, totalPages);
         }
+        checkBtnStatus(currentPage, totalPages);
+
+        if (!isMobile()) {
+            renderPagination(currentPage, totalPages);
+        }
+        
+
+        updatePaginationButtons(currentPage, totalPages);
+        showPaginationOrLoadMore();
+        smoothScroll();
         
     } catch (error){
         console.log(error);
@@ -113,7 +138,66 @@ export const getProductsByCategory = async (e) => {
 }
 refs.categoryList.addEventListener('click', getProductsByCategory);
 
-// ======================pagination===================//
+refs.paginationList.addEventListener('click', async (e) => {
+    if (e.target.nodeName !== 'BUTTON') return;
+
+    e.target.blur();
+    const newPage = Number(e.target.dataset.page);
+    if (newPage === currentPage) return;
+
+    currentPage = newPage;
+    await loadPage();
+});
+
+refs.prevBtn.addEventListener('click', async (e) => {
+    e.target.blur();
+    if (currentPage === 1) return;
+    currentPage -= 1;
+    await loadPage();
+});
+
+refs.nextBtn.addEventListener('click', async (e) => {
+    
+    e.target.blur();
+    if (currentPage === totalPages) return;
+    currentPage += 1;
+    await loadPage();
+});
+
+export const loadPage = async () => {
+    if (isMobile()) return;
+
+    clearProducts();
+    showLoader();
+    hidePagination();
+
+    try {
+        const limit = getLimitByScreenType(currentScreenType);
+
+        if (activeCategory === 'all') {
+            const { animals, totalItems } = await fetchAllProducts(currentPage, limit);
+            renderProducts(animals, false);
+            totalPages = Math.ceil(totalItems / limit);
+        } else {
+            const { animals, totalItems } = await fetchProductsByCategory({
+                categoryId: activeCategory,
+                page: currentPage,
+                limit,
+            });
+            renderProducts(animals, false);
+            totalPages = Math.ceil(totalItems / limit);
+        }
+        renderPagination(currentPage, totalPages);
+        updatePaginationButtons(currentPage, totalPages);
+        showPagination();
+    } catch (error) {
+        console.log(error);
+        iziToast.error({ message: 'Oops, something went wrong!' });
+    } finally {
+        hideLoader();
+    }
+};
+
 
 refs.loadMoreBtn.addEventListener('click', async () => {
     
@@ -124,8 +208,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     try {
         if (activeCategory === 'all') {
             const { animals } = await fetchAllProducts(currentPage, limit);
-                
-            renderProducts(animals);
+            renderProducts(animals, true);
             smoothScroll();
             checkBtnStatus(currentPage, totalPages);
         } else {
@@ -134,14 +217,12 @@ refs.loadMoreBtn.addEventListener('click', async () => {
                 page: currentPage,
                 limit,
             });
-            if (animals.length === 0) {
-                refs.divNotFound.classList.add('not-found--visible');
-            }
-            renderProducts(animals);
+            
+            renderProducts(animals, true);
             smoothScroll();
             checkBtnStatus(currentPage, totalPages);
         }
-        
+        renderPagination(currentPage, totalPages);
     } catch (error) {
         console.log(error);
         iziToast.error({ message: 'Oops, something went wrong!' });
