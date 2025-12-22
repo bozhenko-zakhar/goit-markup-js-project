@@ -150,7 +150,7 @@
 
     
 
-    margin-bottom: 11px;
+    margin-bottom: 4px;
     padding: 0;
     list-style: none;
 }
@@ -359,6 +359,95 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+    /* pagination */
+        .products-pagination-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+        .hidden {
+            display: none;
+        }
+    
+        .products-pagination__list {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .products-pagination__item {
+            display: flex;
+        }
+    
+        .products-pagination__btn {
+            min-width: 58px;
+            height: 48px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 400;
+            color: #02060a;
+    
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background-color: unset;
+        }
+    
+        .products-pagination__btn:hover:not(:disabled) {
+            color: #02060a;
+                background-color: #eee9e3;
+                border: 1px solid #c3b49d;
+                border-radius: 8px;
+            transform: scale(1.05);
+        }
+    
+        .products-pagination__btn--active {
+            color: #02060a;
+            background-color: #eee9e3;
+                border: 1px solid #c3b49d;
+                border-radius: 8px;
+        }
+    
+        .products-pagination__btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    
+        /* Стилі для стрілок */
+        .products-pagination__btn--prev,
+        .products-pagination__btn--next {
+            font-size: 20px;
+            border: 1px solid #c3b49d;
+                border-radius: 8px;
+                padding: 12px;
+                min-width: 48px;
+                height: 48px;
+                background: #eee9e3;
+        }
+    
+        /* Три крапки */
+        .products-pagination__dots {
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+        }
+    
+        .products-pagination__dots span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #02060a;
+            letter-spacing: 2px;
+        }
 
 }
 

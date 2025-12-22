@@ -23,11 +23,11 @@ export const fetchAllProducts = async (page, limit) => {
             page,
         },
     });
-    // Save to dataStorage without duplicates
+    
     data.animals.forEach(animal => {
         dataStorage.animals.set(animal._id, animal);
     });
-    console.log(dataStorage);
+    
     return data;
 };
 
@@ -45,10 +45,9 @@ const { data } = await axios(`${ENDPOINTS.PRODUCTS}`, {
         limit,
     }
 });
-    // Save to dataStorage without duplicates
+    
     data.animals.forEach(animal => {
         dataStorage.animals.set(animal._id, animal);
     });
-    console.log(dataStorage);
     return data;
 };

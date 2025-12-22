@@ -10,7 +10,7 @@ export const renderCategories = (data) => {
     refs.categoryList.innerHTML = markup;
 };
 //======================================================================================
-export const renderProducts = (data) => {
+export const renderProducts = (data, shouldAppend = false) => {
     const markup = data
         .map(({ _id, image, species, name, categories, age, gender, behavior }) => {
                 
@@ -46,5 +46,83 @@ export const renderProducts = (data) => {
             </li>`;
         })
         .join('');
-    refs.productlist.insertAdjacentHTML('beforeend', markup);
+    if (shouldAppend) {
+        refs.productlist.insertAdjacentHTML('beforeend', markup);
+    } else {
+        refs.productlist.innerHTML = markup;
+    }
+};
+
+export const renderPagination = (currentPage, totalPages) => {
+    let markup = '';
+
+    if (totalPages <= 1) {
+        refs.paginationList.innerHTML = '';
+        return;
+    }
+
+    if (totalPages <= 3) {
+        for (let i = 1; i <= totalPages; i++) {
+            const activeClass = i === currentPage
+                ? 'products-pagination__btn--active'
+                : '';
+
+            markup += `
+                <li class="products-pagination__item">
+                    <button class="products-pagination__btn ${activeClass}"
+                            data-page="${i}"
+                            type="button">
+                        ${i}
+                    </button>
+                </li>
+            `;
+        }
+        refs.paginationList.innerHTML = markup;
+        return;
+    }
+    const maxVisibleButtons = 3;
+
+    if (currentPage > 2) {
+        const activeClass = currentPage === 1 ? 'products-pagination__btn--active' : '';
+        markup += `<li class="products-pagination__item">
+            <button class="products-pagination__btn ${activeClass}" data-page="1" type="button">1</button>
+        </li>`
+    
+        if (currentPage > 3) {
+            markup += `<li class="products-pagination__item products-pagination__dots">
+                    <span>...</span>
+                </li>`;
+        }
+    }
+    let startPage = Math.max(1, currentPage - 1);
+    let endPage = Math.min(totalPages, currentPage + 1);
+
+    if (endPage - startPage < 2) {
+        if (startPage === 1) {
+            endPage = Math.min(3, totalPages);
+        } else if (endPage === totalPages) {
+            startPage = Math.max(1, totalPages - 2);
+        }
+    }
+    for (let i = startPage; i <= endPage; i++) {
+        const activeClass = i === currentPage ? 'products-pagination__btn--active' : '';
+        markup += `<li class="products-pagination__item">
+                <button class="products-pagination__btn ${activeClass}" data-page="${i}" type="button">${i}</button>
+            </li>`
+    }
+    if (currentPage < totalPages - 1) {
+        if (currentPage < totalPages - 2) {
+            markup += `<li class="products-pagination__item products-pagination__dots">
+                    <span>...</span>
+                </li>`;
+        }
+        const activeClass = currentPage === totalPages ? 'products-pagination__btn--active' :
+            '';
+        markup += `<li class="products-pagination__item">
+                <button class="products-pagination__btn ${activeClass}" data-page="${totalPages}" 
+                type="button">${totalPages}</button>
+            </li>`;
+    }
+    refs.paginationList.innerHTML = markup;
+        
 };
