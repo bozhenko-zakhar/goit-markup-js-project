@@ -1,3 +1,5 @@
+import renderHeaderLogo from "../untils/header-render-logo";
+
 const modalMenuHeader = document.querySelector('.modal-menu');
 const buttonHeaderBurger = document.querySelector('.header__burger');
 const links = document.querySelectorAll('.modal-menu__nav a');
@@ -48,3 +50,4 @@ document.addEventListener('click', e => {
 });
 
 links.forEach(link => link.addEventListener('click', closeMenu));
+renderHeaderLogo();
