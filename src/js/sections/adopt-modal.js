@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import sprite from "../../img/sprite.svg"
 import { closeAnimalModal } from './modal-animal-detail';
 
 //  STATE & SELECTORS;
@@ -8,6 +9,13 @@ let currentAnimalId = '682f9bbf8acbdf505592ac36';
 const backdrop = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[data-modal-close]');
 const formEl = document.querySelector('.adopt-modal-form');
+const adopModalSvg = document.querySelector('[data-modal-close]');
+
+adopModalSvg.innerHTML = `
+<svg class="adopt-modal-svg" width="24" height="24">
+	<use href="${sprite}#icon-close"></use>
+</svg>
+`
 
 //  MODAL LOGIC
 export function openModal(animalId) {
