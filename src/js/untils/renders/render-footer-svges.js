@@ -1,4 +1,4 @@
-import sprite from "../../img/sprite.svg";
+import sprite from "../../../img/sprite.svg";
 
 const logoContainer = document.querySelector(".footer-logo");
 const footerIcons = document.querySelector(".footer-social-links-list");

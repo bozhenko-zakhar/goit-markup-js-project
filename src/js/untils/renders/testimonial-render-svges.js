@@ -1,8 +1,8 @@
-import sprite from "../../img/sprite.svg"
+import sprite from "../../../img/sprite.svg"
 
 const testimonialNavigationButtons = document.querySelector(".testimonial-navigation-buttons");
 
-const markup = `
+const markup1 = `
 	<div class="testimonials-prev js-testimonials-prev">
 		<svg class="icon-back" viewBox="0 0 24 24">
 			<use href="${sprite}#icon-arrow_back"></use>
@@ -13,8 +13,8 @@ const markup = `
 			<use href="${sprite}#icon-arrow_forward"></use>
 		</svg>
 	</div>
-`
+`;
 
 export default function renderTestimonialSvges() {
-	testimonialNavigationButtons.innerHTML = markup;
+	testimonialNavigationButtons.innerHTML = markup1;
 }

@@ -1,3 +1,5 @@
+/* swiper-pagination-bullet */
+
 /* Рейтинги */
 .rating {
   display: flex;
@@ -101,26 +103,24 @@
   display: flex;
   flex-direction: row;
   bottom: auto;
-  gap: 8px;
+  gap: 4px;
   padding: 20px 0px;
 }
 .swiper-controls .swiper-pagination-bullet {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   border-radius: 100%;
   fill: #02060a;
-  background-color: #d1d5db !important;
-  transform: scale(0.6);
-  transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+  transform: scale(1);
+  transition: opacity 0.5s ease, background-color 0.5s ease;
 }
 .swiper-controls .swiper-pagination-bullet-active {
   width: 8px;
   height: 8px;
   border-radius: 100%;
-  transform: scale(1.6);
   opacity: 1;
   background-color: #02060a !important;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 .swiper-controls .swiper-pagination-bullet-active-prev,
 .swiper-controls .swiper-pagination-bullet-active-next{

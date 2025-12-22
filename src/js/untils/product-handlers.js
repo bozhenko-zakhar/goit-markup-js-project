@@ -2,7 +2,7 @@ import iziToast from "izitoast";
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { fetchAllProducts, fetchCategories, fetchProductsByCategory } from "./product-api";
-import { renderCategories, renderProducts,renderPagination } from "./product-render-function";
+import { renderCategories, renderProducts, renderPagination } from "./renders/product-render-function";
 import {
     getScreenType, getLimitByScreenType, debounce,
     clearProducts, changeActiveBtn, smoothScroll, checkBtnStatus,
@@ -187,7 +187,6 @@ export const loadPage = async () => {
             renderProducts(animals, false);
             totalPages = Math.ceil(totalItems / limit);
         }
-        console.log("Current Page:" + currentPage + ", total: " + totalPages)
         renderPagination(currentPage, totalPages);
         updatePaginationButtons(currentPage, totalPages);
         showPagination();

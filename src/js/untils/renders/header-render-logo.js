@@ -1,4 +1,4 @@
-import sprite from "../../img/sprite.svg";
+import sprite from "../../../img/sprite.svg";
 
 const logoContainer = document.querySelector(".header__link-logo");
 

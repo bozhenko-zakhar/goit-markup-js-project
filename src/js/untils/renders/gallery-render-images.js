@@ -1,4 +1,4 @@
-import images from "./gallery-images";
+import images from "../gallery-images";
 
 const slides = document.querySelectorAll(".gallerySlide");
 const galleryWrapper = document.querySelector(".galleryWrapper");

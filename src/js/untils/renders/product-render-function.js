@@ -1,4 +1,4 @@
-import { refs } from './product-refs';
+import { refs } from '../product-refs';
 
 export const renderCategories = (data) => {
     const markup = data
