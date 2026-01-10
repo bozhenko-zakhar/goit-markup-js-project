@@ -1,3 +1,3 @@
-import renderFooterSvges from "../untils/renders/render-footer-svges";
+import renderFooterSvges from "../untils/renders/footer-render-svges";
 
 renderFooterSvges();

@@ -11,14 +11,14 @@ const logo = `
 
 const svgItems = `
 <li class="footer-social-links-list-item">
-	<a href="https://www.facebook.com/" class="footer-social-icon" target="_blank">
+	<a href="https://www.facebook.com/" class="footer-social-icon" rel="noopener noreferrer" target="_blank">
 		<svg class="footer-social-icon-unit">
 				<use href="${sprite}#icon-facebook"></use>
 		</svg>
 	</a>
 </li>
 <li class="footer-social-links-list-item">
-	<a href="https://www.instagram.com/" class="footer-social-icon" target="_blank">
+	<a href="https://www.instagram.com/" class="footer-social-icon" rel="noopener noreferrer" target="_blank">
 		<svg class="footer-social-icon-unit">
 				<use href="${sprite}#icon-instagram"></use>
 		</svg>

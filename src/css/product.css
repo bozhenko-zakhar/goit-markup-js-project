@@ -8,8 +8,6 @@
 		background-color: #f6f4f1;
 }
 
-.product-card__body {}
-
 .products-container {
     display: flex;
     flex-direction: column;
@@ -79,7 +77,6 @@
 
 .products-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
     align-items: stretch;
     
     gap: 32px;
