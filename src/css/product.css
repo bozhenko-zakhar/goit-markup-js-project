@@ -91,6 +91,7 @@
 
 
 /* =======css for card=========== */
+.products-pagination__btn
 .product-card {
     display: flex;
     align-items: flex-start;
@@ -406,15 +407,15 @@
 
 				cursor: pointer;
 				transition: all 0.3s ease;
-				border: none;
+				border: 1px solid #f6f4f1;
 				background-color: unset;
+				border-radius: 8px;
 		}
 
 		.products-pagination__btn:hover:not(:disabled) {
 				color: #02060a;
-						background-color: #eee9e3;
-						border: 1px solid #c3b49d;
-						border-radius: 8px;
+				background-color: #eee9e3;
+				border: 1px solid #c3b49d;
 				transform: scale(1.05);
 		}
 
