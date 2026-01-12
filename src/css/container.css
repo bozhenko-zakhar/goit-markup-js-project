@@ -1,13 +1,9 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 /* Styles for Mobile devices */
 .container {
-  width: 100%;
-  padding: 0 20px;
+  min-width: 320px;
+  max-width: 375px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Styles for Tablet devices */
@@ -17,6 +13,7 @@
     padding: 0 32px;
   }
 }
+
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
   .container {
@@ -24,5 +21,3 @@
     padding: 0 64px;
   }
 }
-
-
